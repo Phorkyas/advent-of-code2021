@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
-# calculate path of lowest risk
-# use Dijkstra algorithm
+# Calculate path of lowest risk using the Dijkstra algorithm
+
+# Did *not* do any optimization, proper data structures.
+# Hence this might run two entire days for the enlarged maps!
 
 def wrap_at_9(num):
     if num > 9:

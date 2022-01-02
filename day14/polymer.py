@@ -37,8 +37,7 @@ print(str(polymer))
 
 def grow_polymer(polymer, rule):
     # a polymer is now only the count of the pairs
-    # This was the only time so far that I cheated and looked at the reddit
-    # otherwise did not have that idea
+    # - as I was impatient and had no clue I looked at reddit for ideas - this was the only time though 
     increment = {}
     for pair in polymer.keys():
         if pair in rule.keys():
@@ -55,10 +54,11 @@ def grow_polymer(polymer, rule):
     return polymer
 
 def count(polymer):
-    # start and end are only counted once
-    # all other letters in the chain are counted twice
+    # All letters in the chain are counted twice *except* the start and end which are only counted once.
+    # Thus we initialize the count list with "1" for these two letters.
+    # Then we can just count all letters in the pairs and finally divide by two. 
     
-    # for test data
+    # for test data, compare teh templates
     #counts = {"N":1, "B":1}
     
     # for the real data
@@ -68,7 +68,7 @@ def count(polymer):
         add_or_incr(counts, c[1], polymer[c])
     res = []
     for count in counts.values():
-        res.append(int(count/2))
+        res.append(int(count / 2))
     return list(sorted(res))
 
 for steps in range(40):
